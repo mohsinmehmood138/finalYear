@@ -1,0 +1,31 @@
+.app-logo{
+display: flex;
+align-items: center;
+   
+}
+.logo-image{
+    height: 44px;
+    margin-left: 83px;
+}
+.logo-text-style{
+    padding: 0px;
+    margin: 0px;
+    font-family: system-ui;
+}
+.text-container{
+    margin-left:8px;
+
+}
+.logo-span{
+    color: #558E99;
+    position: relative;
+    position: relative;
+    bottom: 8px;
+    margin-left: 4px;
+    font-size: 16px;
+}
+.web-portal-text{
+    font-size: 10px;
+    font-weight: 700;
+    font-family: system-ui;
+}

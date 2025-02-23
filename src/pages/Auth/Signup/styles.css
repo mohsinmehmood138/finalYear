@@ -1,0 +1,140 @@
+/* Signup page styles - includes all the same base styles as login */
+.signup-main-container {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .signup-split {
+    display: flex;
+    width: 100%;
+    /* height: 100vh; */
+    position: relative;
+    z-index: 1;
+  }
+  
+  .signup-left {
+    flex: 1 1;
+    position: relative;
+    background: transparent;
+    overflow: hidden;
+    left: 100px;
+    top: 62px;
+  }
+  
+  .signup-image {
+    width: 100%;
+  
+    opacity: 0.8;
+  }
+  
+  .signup-right {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0px;
+  }
+  
+  /* Form styles - reusing most login styles */
+  .form-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 30px;
+  }
+  
+  .form-wrapper h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(232, 245, 238, 0.2);
+  }
+  
+  .form-options {
+    margin-bottom: 1.5rem;
+  }
+  
+  .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .checkbox-input {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 1rem;
+    background: transparent;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+  }
+  
+  .submit-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(232, 245, 238, 0.3);
+  }
+  
+  .login-text {
+    text-align: center;
+    color: #6b7280;
+  }
+  
+  .login-text a {
+    color: #558E99;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .signup-split {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .signup-left {
+      height: 200px;
+    }
+  
+    .signup-right {
+      padding: 2rem;
+    }
+  
+    .form-wrapper {
+      padding: 0;
+      margin-top: 2rem;
+    }
+  }

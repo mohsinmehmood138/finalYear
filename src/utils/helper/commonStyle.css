@@ -1,0 +1,11 @@
+.button-text{
+font-size: 14px;
+font-weight: 600;
+font-family: system-ui;
+}
+.submit-form-button{
+    padding: 13px 20px !important;
+    background-color: #558E99 !important;
+    border-radius: 30px !important;
+    color: white !important;
+}

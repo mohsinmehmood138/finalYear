@@ -1,0 +1,37 @@
+.intro_container {
+  height: 100vh;
+  /* background: #e8f5ee; */
+}
+.main-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+.intro-content {
+  margin-top: 7%;
+  width: 34%;
+  height: 100%;
+
+}
+.intro-heading-text {
+  color: #1a1a55;
+  font-size: 33px;
+  width: 80%;
+ 
+}
+.intro-content-desc {
+}
+.intro-button {
+  margin-top: 20px;
+  border-radius: 30px;
+  color: white;
+  background-color: #558e99;
+}
+.intro-image-container {
+  width: 45%;
+}
+.intro-image {
+  width: 100%;
+  margin-top: 2%;
+}
