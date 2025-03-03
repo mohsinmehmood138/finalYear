@@ -1,9 +1,11 @@
 import React from "react";
 import "./styles.css";
-import LoginImage from "../../../assets/images/login-image.png";
 import AppHeader from "../../../component/ui/AppHeader";
+import LoginImage from "../../../assets/images/login-image.png";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({onClick}) => {
+const Login = ()=> {
+  const navigate = useNavigate();
  
   
   return (
@@ -52,7 +54,7 @@ const Login = ({onClick}) => {
                   </a>
                 </div>
 
-                <button type="submit" className="submit-button submit-form-button">
+                <button type="submit" className="submit-button submit-form-button" onClick={() => navigate("/dashboard")}>
                   Sign in
                 </button>
 
