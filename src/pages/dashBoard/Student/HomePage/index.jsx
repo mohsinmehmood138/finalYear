@@ -31,44 +31,57 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
-import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import BadgeIcon from "@mui/icons-material/Badge";
+import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
+import PhoneIcon from "@mui/icons-material/Phone";
+import CreditCardIcon from "@mui/icons-material/CreditCard";
 
 const categories = [
   {
-    name: "Teachers",
-    icon: <SupervisorAccountIcon />,
-    size: 20,
+    name: "Courses",
+    icon: <LocalLibraryIcon />,
+    size: 8,
     trend: "+2",
     color: "#558e99",
   },
   {
-    name: "Students",
-    icon: <SchoolIcon />,
-    size: 200,
-    trend: "+15",
+    name: "Assignments",
+    icon: <AssignmentIcon />,
+    size: 15,
+    trend: "+3",
     color: "#2b6777",
-  },
-  {
-    name: "Admins",
-    icon: <AdminPanelSettingsIcon />,
-    size: 5,
-    trend: "0",
-    color: "#558e99",
   },
   {
     name: "Projects",
     icon: <WorkIcon />,
-    size: 50,
-    trend: "+3",
+    size: 4,
+    trend: "+1",
+    color: "#558e99",
+  },
+  {
+    name: "Attendance",
+    icon: <PeopleIcon />,
+    size: "85%",
+    trend: "+2%",
     color: "#2b6777",
   },
 ];
 
+const studentInfo = {
+  name: "Maira ",
+  rollNumber: "CS-2021-042",
+  cnic: "61101-1234567-8",
+  phone: "+92 300 1234567",
+  department: "Computer Science",
+  semester: "6th",
+  cgpa: "3.75"
+};
+
 const announcements = [
   {
     id: 1,
-    title: "New semester starts from March 10th",
-    description: "Important for all faculty members",
+    title: "Mid-term exams scheduled for April 2nd",
+    description: "For all semester courses",
     icon: <NotificationsIcon />,
     iconBg: "#558e99",
     time: "2 days ago",
@@ -76,8 +89,8 @@ const announcements = [
   },
   {
     id: 2,
-    title: "Staff meeting on Friday at 2 PM",
-    description: "Attendance is mandatory",
+    title: "Career fair on March 20th",
+    description: "Bring your updated resume",
     icon: <NotificationsIcon />,
     iconBg: "#558e99",
     time: "5 days ago",
@@ -85,8 +98,8 @@ const announcements = [
   },
   {
     id: 3,
-    title: "Annual budget planning session",
-    description: "Department heads only",
+    title: "Project submission deadline extended",
+    description: "New deadline: March 25th",
     icon: <AssignmentIcon />,
     iconBg: "#f44336",
     time: "1 week ago",
@@ -94,8 +107,8 @@ const announcements = [
   },
   {
     id: 4,
-    title: "Campus maintenance schedule",
-    description: "Please review the updated schedule",
+    title: "Library hours extended",
+    description: "Now open until 10 PM",
     icon: <NotificationsIcon />,
     iconBg: "#558e99",
     time: "2 weeks ago",
@@ -108,7 +121,7 @@ const messages = [
     id: 1,
     sender: "Prof. Smith",
     avatar: "/images/prof-smith.jpg",
-    preview: "Regarding the upcoming faculty evaluation...",
+    preview: "Regarding your project submission...",
     time: "1 hour ago",
     unread: true,
   },
@@ -116,15 +129,15 @@ const messages = [
     id: 2,
     sender: "Student Council",
     avatar: "/images/student.jpg",
-    preview: "Hello, I'm interested in the advanced programming...",
+    preview: "Join us for the upcoming event...",
     time: "3 hours ago",
     unread: true,
   },
   {
     id: 3,
-    sender: "Dr. Johnson",
-    avatar: "/images/dr-johnson.jpg",
-    preview: "Please find attached the minutes from yesterday's...",
+    sender: "Academic Office",
+    avatar: null,
+    preview: "Your fee status has been updated...",
     time: "Yesterday",
     unread: false,
   },
@@ -141,84 +154,94 @@ const messages = [
 const upcomingEvents = [
   {
     id: 1,
-    title: "Department Meeting",
-    date: "2025-03-05",
-    time: "10:00 AM - 12:00 PM",
-    location: "Conference Room A",
-    type: "meeting",
+    title: "Database Design Quiz",
+    date: "2025-03-18",
+    time: "10:00 AM - 11:30 AM",
+    location: "Room CS-201",
+    type: "exam",
   },
   {
     id: 2,
-    title: "Student Orientation",
-    date: "2025-03-08",
-    time: "09:00 AM - 03:00 PM",
-    location: "Main Auditorium",
-    type: "event",
+    title: "Web Development Lab",
+    date: "2025-03-20",
+    time: "02:00 PM - 04:00 PM",
+    location: "Computer Lab 3",
+    type: "class",
   },
   {
     id: 3,
-    title: "Project Deadline",
-    date: "2025-03-10",
+    title: "Project Submission",
+    date: "2025-03-25",
     time: "11:59 PM",
-    location: "Online Submission",
+    location: "Online Portal",
     type: "deadline",
   },
 ];
 
-const AdminHomePage = () => {
+const StudentHomePage = () => {
   const today = format(new Date(), "EEEE, MMMM d, yyyy | hh:mm a");
   return (
     <Box p={3}>
       {/* Header Section */}
       <Box sx={{ mb: 4 }}>
         <Typography variant="h4" fontWeight="bold" mb={1}>
-          Welcome back, Maira 
+          Welcome back, {studentInfo.name}
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={3}>
           {today}
         </Typography>
-
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={8}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              placeholder="Search for teachers, students, or projects..."
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: 3,
-                  bgcolor: "white",
-                  boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
-                },
-              }}
-            />
-          </Grid>
-          <Grid item xs={12} md={4} sx={{ display: "flex", gap: 1 }}>
-            <Button
-              variant="contained"
-              startIcon={<AddIcon />}
-              sx={{
-                flex: 1,
-                borderRadius: 3,
-                bgcolor: "#558e99",
-                boxShadow: "0 4px 14px rgba(85, 142, 153, 0.4)",
-                "&:hover": {
-                  bgcolor: "#2b6777",
-                },
-              }}
-            >
-              Add New Project
-            </Button>
-          </Grid>
-        </Grid>
       </Box>
+
+      {/* Student Information Card */}
+      <Card 
+        sx={{ 
+          borderRadius: 3, 
+          boxShadow: "0 4px 20px rgba(0,0,0,0.08)", 
+          mb: 4,
+          background: "linear-gradient(135deg, #2b6777, #558e99)"
+        }}
+      >
+        <CardContent>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2, color: "white" }}>
+                <BadgeIcon />
+                <Typography>Roll Number: {studentInfo.rollNumber}</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2, color: "white" }}>
+                <CreditCardIcon />
+                <Typography>CNIC: {studentInfo.cnic}</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2, color: "white" }}>
+                <PhoneIcon />
+                <Typography>Phone: {studentInfo.phone}</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2, color: "white" }}>
+                <SchoolIcon />
+                <Typography>Department: {studentInfo.department}</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2, color: "white" }}>
+                <CalendarTodayIcon />
+                <Typography>Semester: {studentInfo.semester}</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2, color: "white" }}>
+                <TrendingUpIcon />
+                <Typography>CGPA: {studentInfo.cgpa}</Typography>
+              </Box>
+            </Grid>
+          </Grid>
+        </CardContent>
+      </Card>
 
       <Grid container spacing={3} my={4}>
         {categories.map((category, index) => (
@@ -606,82 +629,15 @@ const AdminHomePage = () => {
         </Card>
       </Box>
 
-      <Box mb={4} mt={5}>
-        <Typography variant="h5" fontWeight="bold" mb={2}>
-          Quick Actions
-        </Typography>
-
-        <Grid container spacing={2}>
-          {[
-            {
-              title: "Add New Teacher",
-              icon: <SupervisorAccountIcon />,
-              color: "#558e99",
-            },
-            {
-              title: "Enroll Student",
-              icon: <SchoolIcon />,
-              color: "#2b6777",
-            },
-            { title: "Create Project", icon: <WorkIcon />, color: "#558e99" },
-            {
-              title: "Schedule Meeting",
-              icon: <CalendarTodayIcon />,
-              color: "#2b6777",
-            },
-            {
-              title: "Manage Classes",
-              icon: <AssignmentIcon />,
-              color: "#558e99",
-            },
-          ].map((action, index) => (
-            <Grid item xs={6} md={15} lg={15 / 5} key={index}>
-              <Button
-                variant="outlined"
-                fullWidth
-                sx={{
-                  p: 2,
-                  borderRadius: 3,
-                  height: "100%",
-                  borderColor: "rgba(85, 142, 153, 0.3)",
-                  color: action.color,
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 1,
-                  "&:hover": {
-                    bgcolor: "rgba(85, 142, 153, 0.05)",
-                    borderColor: action.color,
-                  },
-                }}
-              >
-                <Box
-                  sx={{
-                    p: 1.5,
-                    borderRadius: "50%",
-                    bgcolor: "rgba(85, 142, 153, 0.1)",
-                    color: action.color,
-                    display: "flex",
-                  }}
-                >
-                  {action.icon}
-                </Box>
-                <Typography variant="body2" fontWeight="medium">
-                  {action.title}
-                </Typography>
-              </Button>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
 
       {/* Footer */}
       <Box sx={{ mt: 6, mb: 2, textAlign: "center" }}>
         <Typography variant="body2" color="text.secondary">
-          © 2025 Campus Admin Dashboard. All rights reserved.
+          © 2025 Student Dashboard. All rights reserved.
         </Typography>
       </Box>
     </Box>
   );
 };
 
-export default AdminHomePage;
+export default StudentHomePage;

@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useState } from "react";
 import Grid from "@mui/material/Grid";
-import StudentsPage from "../StudentsPage";
 import { styled } from "@mui/material/styles";
+import FeeSection from "../FeeSection/index.jsx";
 import LayersIcon from "@mui/icons-material/Layers";
 import LogoutIcon from "@mui/icons-material/Logout";
 import BarChartIcon from "@mui/icons-material/BarChart";
@@ -36,7 +36,7 @@ import {
   ListItemAvatar,
 } from "@mui/material";
 import AdminHomePage from "../HomePage";
-import TeachersPage from "../StudentsPage";
+// import FeeSection from "../FeeSection/index.jsx";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import ExamResult from "../ExamAndResult/index.jsx";
@@ -48,6 +48,11 @@ import EnrollCourse from "../Courses/EnrollCourse/index.jsx";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AvailableCourses from "../Courses/AvilableCourse/index.jsx";
+import PaymentIcon from "@mui/icons-material/Payment";
+import AttendanceSection from "../AttendanceSection/index.jsx";
+import AssignmentSection from "../AssignmentSection;/index.jsx";
+import SchoolIcon from "@mui/icons-material/School";
+
 
 const announcements = [
   {
@@ -123,23 +128,16 @@ const messages = [
   },
 ];
 const NAVIGATION = [
-  { kind: "header", title: "User Management" },
+  { kind: "header", title: "" },
   { segment: "dashboard", title: "Dashboard", icon: <DashboardIcon /> },
-  { segment: "students", title: "Students", icon: <PeopleAltIcon /> },
-  { segment: "teachers", title: "Teachers", icon: <PeopleAltIcon /> },
+  { segment: "students", title: "Fee Section", icon: <PaymentIcon /> },
+  { segment: "teachers", title: "Attendance", icon: <SchoolIcon /> },
+  { segment: "assignmentS", title: "Assignments", icon: <AssignmentIcon /> },
+  { segment: "exam", title: "Exam & Result", icon: <PeopleAltIcon /> },
 
-  { kind: "divider" },
-  { kind: "header", title: "Administration" },
-  {
-    segment: "reports",
-    title: "Courses",
-    icon: <BarChartIcon />,
-    children: [
-      { segment: "sales", title: "Avilable Courses", icon: <DescriptionIcon /> },
-      { segment: "traffic", title: "Enroll Courses", icon: <DescriptionIcon /> },
-    ],
-  },
-  { segment: "integrations", title: "Exams & Results", icon: <LayersIcon /> },
+
+
+ 
 ];
 const drawerWidth = 240;
 const theme = createTheme({
@@ -178,12 +176,12 @@ const Skeleton = styled("div")(({ theme, height }) => ({
   content: '" "',
 }));
 const DashboardContent = () => <AdminHomePage />;
-const StudentsContent = () => <StudentsPage />;
-const TeacherCount=()=><TeachersPage/>
+const StudentsContent = () => <FeeSection />;
+const TeacherCount=()=><AttendanceSection/>
 const SalesContent = () => <AvailableCourses/>
 const TrafficContent = () => <EnrollCourse/>
 const IntegrationsContent = () => <ExamResult/>
-export default function DashboardLayoutBasic() {
+export default function StudentDasboard() {
   const [open, setOpen] = React.useState(true);
   const [currentContent, setCurrentContent] = React.useState("dashboard");
   const [pageTitle, setPageTitle] = React.useState("Dashboard");
@@ -234,12 +232,11 @@ export default function DashboardLayoutBasic() {
         return <StudentsContent />;
         case "teachers":
           return <TeacherCount />;
-      case "sales":
-        return <SalesContent />;
-      case "traffic":
-        return <TrafficContent />;
-      case "integrations":
-        return <IntegrationsContent />;
+      case "assignmentS":
+        return <AssignmentSection />;
+      case "exam":
+        return <ExamResult />;
+      
       default:
         return <DashboardContent />;
     }
@@ -339,7 +336,7 @@ export default function DashboardLayoutBasic() {
               component="div"
               sx={{ flexGrow: 1 }}
             >
-              Campus Admin Dashboard
+              Campus Portal
             </Typography>
 
             <Box sx={{ display: "flex", alignItems: "center" }}>

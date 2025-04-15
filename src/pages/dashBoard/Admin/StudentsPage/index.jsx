@@ -15,19 +15,19 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
-const studentsData = Array.from({ length: 50 }, (_, index) => ({
+const teachersData = Array.from({ length: 30 }, (_, index) => ({
   id: index + 1,
-  name: `Student ${index + 1}`,
-  department: index % 2 === 0 ? "Computer Science" : "Mathematics",
+  name: `Teacher ${index + 1}`,
+  department: index % 2 === 0 ? "Physics" : "Chemistry",
   image: `https://via.placeholder.com/40`,
-  email: `student${index + 1}@university.com`,
-  phone: `+123456789${index}`,
+  email: `teacher${index + 1}@university.com`,
+  phone: `+987654321${index}`,
 }));
 
-const StudentsPage = () => {
+const TeachersPage = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(20);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
@@ -42,8 +42,8 @@ const StudentsPage = () => {
     setPage(0);
   };
 
-  const filteredStudents = studentsData.filter((student) =>
-    student.name.toLowerCase().includes(search.toLowerCase())
+  const filteredTeachers = teachersData.filter((teacher) =>
+    teacher.name.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -52,7 +52,7 @@ const StudentsPage = () => {
       <Box display="flex" alignItems="center" mb={2}>
         <TextField
           variant="outlined"
-          placeholder="Search students..."
+          placeholder="Search teachers..."
           size="small"
           value={search}
           onChange={handleSearchChange}
@@ -66,9 +66,9 @@ const StudentsPage = () => {
         />
       </Box>
 
-      {/* Students Table */}
-      <TableContainer component={Paper} sx={{border:"1px solid #558e99"}}>
-        <Table sx={{borderRadius:20}}>
+      {/* Teachers Table */}
+      <TableContainer component={Paper} sx={{ border: "1px solid #558e99" }}>
+        <Table sx={{ borderRadius: 20 }}>
           <TableHead>
             <TableRow style={{ backgroundColor: "#558e99" }}>
               <TableCell style={{ color: "white", fontWeight: "bold" }}>Image</TableCell>
@@ -79,17 +79,17 @@ const StudentsPage = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {filteredStudents
+            {filteredTeachers
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((student) => (
-                <TableRow key={student.id} style={{ borderBottom: "2px solid #558e99" }}>
+              .map((teacher) => (
+                <TableRow key={teacher.id} style={{ borderBottom: "2px solid #558e99" }}>
                   <TableCell>
-                    <Avatar src={student.image} alt={student.name} />
+                    <Avatar src={teacher.image} alt={teacher.name} />
                   </TableCell>
-                  <TableCell>{student.name}</TableCell>
-                  <TableCell>{student.department}</TableCell>
-                  <TableCell>{student.email}</TableCell>
-                  <TableCell>{student.phone}</TableCell>
+                  <TableCell>{teacher.name}</TableCell>
+                  <TableCell>{teacher.department}</TableCell>
+                  <TableCell>{teacher.email}</TableCell>
+                  <TableCell>{teacher.phone}</TableCell>
                 </TableRow>
               ))}
           </TableBody>
@@ -100,7 +100,7 @@ const StudentsPage = () => {
       <TablePagination
         rowsPerPageOptions={[10, 20, 30]}
         component="div"
-        count={filteredStudents.length}
+        count={filteredTeachers.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
@@ -110,4 +110,4 @@ const StudentsPage = () => {
   );
 };
 
-export default StudentsPage;
+export default TeachersPage;

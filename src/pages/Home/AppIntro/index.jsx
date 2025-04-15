@@ -3,16 +3,18 @@ import "./styles.css";
 import "../../../utils/helper/commonStyle.css";
 import AppHeader from "../../../component/ui/AppHeader";
 import IntroImage from "../../../assets/images/app-intro-image.png";
+import { useNavigate } from "react-router-dom";
 
 
 const AppIntro = () => {
+  const navigate = useNavigate();
   return (
     <main className="intro_container">
       <AppHeader />
       <div className="main-container">
         <div className="intro-content">
           <h2 className="intro-heading-text">
-            Cleaning Service From World Class Agency.
+             If You are Admin then Click Here
           </h2>
           <p className="intro-content-desc">
             Whether you're seeking to enhance your team's capabilities, solve
@@ -21,7 +23,9 @@ const AppIntro = () => {
             Join us in unlocking limitless possibilities and accelerating your
             journey to success.
           </p>
-          <button className="intro-button button-text">Get Started</button>
+          <button className="intro-button button-text" onClick={()=>{
+           navigate("/login")
+            }}>Get Started</button>
         </div>
         <div className="intro-image-container">
           <img src={IntroImage} className="intro-image" />

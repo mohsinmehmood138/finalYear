@@ -11,8 +11,7 @@ const AppHeader = () => {
     <header className="header">
       <div className="logo">
         <a href="/" className="logo-anchor-tag">
-
-        <AppLogo />
+         <AppLogo />
         </a>
       </div>
 
@@ -20,7 +19,7 @@ const AppHeader = () => {
         <button className="login-btn button-text" onClick={() => navigate("/login")}>
           Login
         </button>
-        <button className="signup-btn button-text" onClick={() => navigate("/signup")}>Sign Up</button>
+        {/* <button className="signup-btn button-text" onClick={() => navigate("/signup")}>Sign Up</button> */}
       </div>
     </header>
   );

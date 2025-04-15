@@ -1,8 +1,8 @@
 import React from "react";
 import "./styles.css";
+import { useNavigate } from "react-router-dom";
 import AppHeader from "../../../component/ui/AppHeader";
 import LoginImage from "../../../assets/images/login-image.png";
-import { useNavigate } from "react-router-dom";
 
 const Login = ()=> {
   const navigate = useNavigate();
@@ -58,9 +58,9 @@ const Login = ()=> {
                   Sign in
                 </button>
 
-                <p className="signup-text">
+                {/* <p className="signup-text">
                   Don't have an account? <a href="/signup">Sign up</a>
-                </p>
+                </p> */}
               </form>
             </div>
           </div>

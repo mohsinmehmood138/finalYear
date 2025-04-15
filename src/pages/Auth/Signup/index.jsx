@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
-import SignupImage from "../../../assets/images/signup-image.png";
 import AppHeader from "../../../component/ui/AppHeader";
+import SignupImage from "../../../assets/images/signup-image.png";
 
 const Signup = () => {
   return (
